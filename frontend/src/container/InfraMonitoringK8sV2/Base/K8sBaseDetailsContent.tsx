@@ -18,7 +18,12 @@ import {
 	initialQueryState,
 } from 'constants/queryBuilder';
 import ROUTES from 'constants/routes';
+import {
+	applySerializedParams,
+	serialize,
+} from 'lib/compositeQuery/serializer';
 import { parseAsString, useQueryState } from 'nuqs';
+import { EQueryType } from 'types/common/dashboard';
 import {
 	LogsAggregatorOperator,
 	TracesAggregatorOperator,
@@ -162,7 +167,7 @@ export default function K8sBaseDetailsContent<T>({
 
 			const compositeQuery = {
 				...initialQueryState,
-				queryType: 'builder',
+				queryType: EQueryType.QUERY_BUILDER,
 				builder: {
 					...initialQueryState.builder,
 					queryData: [
@@ -176,7 +181,7 @@ export default function K8sBaseDetailsContent<T>({
 				},
 			};
 
-			urlQuery.set('compositeQuery', JSON.stringify(compositeQuery));
+			applySerializedParams(serialize(compositeQuery), urlQuery);
 
 			openInNewTab(`${ROUTES.LOGS_EXPLORER}?${urlQuery.toString()}`);
 		} else if (selectedView === VIEW_TYPES.TRACES) {
@@ -187,7 +192,7 @@ export default function K8sBaseDetailsContent<T>({
 
 			const compositeQuery = {
 				...initialQueryState,
-				queryType: 'builder',
+				queryType: EQueryType.QUERY_BUILDER,
 				builder: {
 					...initialQueryState.builder,
 					queryData: [
@@ -201,7 +206,7 @@ export default function K8sBaseDetailsContent<T>({
 				},
 			};
 
-			urlQuery.set('compositeQuery', JSON.stringify(compositeQuery));
+			applySerializedParams(serialize(compositeQuery), urlQuery);
 
 			openInNewTab(`${ROUTES.TRACES_EXPLORER}?${urlQuery.toString()}`);
 		}

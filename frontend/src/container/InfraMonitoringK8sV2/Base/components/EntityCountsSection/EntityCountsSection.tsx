@@ -5,6 +5,10 @@ import { Compass } from '@signozhq/icons';
 import { QueryParams } from 'constants/query';
 import { initialQueriesMap } from 'constants/queryBuilder';
 import ROUTES from 'constants/routes';
+import {
+	applySerializedParams,
+	serialize,
+} from 'lib/compositeQuery/serializer';
 import { Link } from 'react-router-dom';
 import { DataSource } from 'types/common/queryBuilder';
 import { v4 as uuid } from 'uuid';
@@ -54,10 +58,7 @@ export function EntityCountsSection<T>({
 
 		const urlParams = new URLSearchParams();
 		urlParams.set(INFRA_MONITORING_K8S_PARAMS_KEYS.CATEGORY, targetCategory);
-		urlParams.set(
-			QueryParams.compositeQuery,
-			encodeURIComponent(JSON.stringify(compositeQuery)),
-		);
+		applySerializedParams(serialize(compositeQuery), urlParams);
 
 		const currentSearchParams = new URLSearchParams(window.location.search);
 		const detailRelativeTime = currentSearchParams.get(

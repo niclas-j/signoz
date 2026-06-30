@@ -5,6 +5,11 @@ import { QueryParams } from 'constants/query';
 import type { PANEL_TYPES } from 'constants/queryBuilder';
 import { useSafeNavigate } from 'hooks/useSafeNavigate';
 import useUrlQuery from 'hooks/useUrlQuery';
+import {
+	applySerializedParams,
+	clearSerializedParams,
+	serialize,
+} from 'lib/compositeQuery/serializer';
 import { DashboardDetailEvents } from 'pages/DashboardPageV2/constants/events';
 import type { Query } from 'types/api/queryBuilder/queryBuilderData';
 
@@ -47,7 +52,7 @@ export function useViewPanel(): UseViewPanelApi {
 			next.set(QueryParams.expandedWidgetId, panelId);
 			// Drop leftover in-modal query/kind + the editor's handoff so a plain View opens
 			// on the saved panel, not stale state the modal would otherwise hydrate from.
-			next.delete(QueryParams.compositeQuery);
+			clearSerializedParams(next);
 			next.delete(QueryParams.graphType);
 			clearViewPanelHandoff();
 			void logEvent(DashboardDetailEvents.PanelViewed, { panelId });
@@ -63,12 +68,7 @@ export function useViewPanel(): UseViewPanelApi {
 			next.set(QueryParams.graphType, panelType);
 			// A grid drilldown opens on the saved panel, never a stale editor handoff.
 			clearViewPanelHandoff();
-			// Same encoding the query builder uses (see `useGetCompositeQueryParam`): the URL
-			// value is `encodeURIComponent(JSON.stringify(query))`, decoded once on read.
-			next.set(
-				QueryParams.compositeQuery,
-				encodeURIComponent(JSON.stringify(query)),
-			);
+			applySerializedParams(serialize(query), next);
 			safeNavigate(`${pathname}?${next.toString()}`);
 		},
 		[pathname, safeNavigate, urlQuery],
@@ -79,7 +79,7 @@ export function useViewPanel(): UseViewPanelApi {
 		next.delete(QueryParams.expandedWidgetId);
 		// Drop the drilldown editor's URL state so it doesn't leak to the dashboard
 		// (the in-modal query builder writes compositeQuery, V1 parity).
-		next.delete(QueryParams.compositeQuery);
+		clearSerializedParams(next);
 		next.delete(QueryParams.graphType);
 		clearViewPanelHandoff();
 		const search = next.toString();
