@@ -2,23 +2,27 @@ package clickhouseprometheusv2
 
 import (
 	"context"
+	"time"
 
 	"github.com/SigNoz/signoz/pkg/factory"
 	"github.com/SigNoz/signoz/pkg/prometheus"
 	"github.com/SigNoz/signoz/pkg/telemetrystore"
+	"github.com/prometheus/prometheus/promql"
 	"github.com/prometheus/prometheus/storage"
 )
 
-// Provider ties the package together: its own engine and parser, and the
-// ClickHouse client behind the native storage.Querier. See the package
-// documentation for how the read path differs from v1. It is exported as a
-// concrete type — callers hold it directly, and an interface with a single
+// Provider ties the package together: its own engine and parser, the
+// ClickHouse client behind the native storage.Querier, and the transpiler
+// executor. See the package documentation for what runs where and why. It is
+// exported as a concrete type — pkg/querier holds it directly for shadow
+// comparison and pinned serving, and an interface with a single
 // implementation would only hide that dependency.
 type Provider struct {
 	settings factory.ScopedProviderSettings
 	engine   *prometheus.Engine
 	parser   prometheus.Parser
 	client   *client
+	executor *executor
 }
 
 var (
@@ -44,7 +48,15 @@ func New(_ context.Context, providerSettings factory.ProviderSettings, config pr
 		engine:   engine,
 		parser:   parser,
 		client:   client,
+		executor: &executor{client: client, engine: engine, parser: parser},
 	}, nil
+}
+
+// TryExecuteRange evaluates transpilable query shapes directly in ClickHouse
+// (see transpiler.go). ok=false means the shape is not transpilable and the
+// caller should evaluate through Engine over Storage instead.
+func (p *Provider) TryExecuteRange(ctx context.Context, query string, start, end time.Time, step time.Duration) (promql.Matrix, bool, error) {
+	return p.executor.TryExecuteRange(ctx, query, start, end, step)
 }
 
 func (p *Provider) Engine() *prometheus.Engine {

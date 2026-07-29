@@ -1,0 +1,5208 @@
+[
+  {
+    "expr": "(metric1_total offset 2) ^ 2",
+    "start_ms": -198000,
+    "end_ms": 1002000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "(metric1_total offset 2) ^ 2",
+    "start_ms": 1002000,
+    "end_ms": 1002000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "-metric_a or -metric_b",
+    "start_ms": 0,
+    "end_ms": 1000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "-metric_a or -metric_b",
+    "start_ms": 0,
+    "end_ms": 1200000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "-metric_a or -metric_b",
+    "start_ms": 17000,
+    "end_ms": 1200000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "-metric_total",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "-metric_total",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "-{job=\"api\"}",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "-{job=\"api\"}",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "-{job=\"api\"}",
+    "start_ms": 0,
+    "end_ms": 1200000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "-{job=\"api\"}",
+    "start_ms": 0,
+    "end_ms": 1200000,
+    "step_ms": 1200000,
+    "plan": "full"
+  },
+  {
+    "expr": "-{job=\"api\"}",
+    "start_ms": 17000,
+    "end_ms": 1200000,
+    "step_ms": 1200000,
+    "plan": "full"
+  },
+  {
+    "expr": "-{job=\"api\"}",
+    "start_ms": 1200000,
+    "end_ms": 1200000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "10 atan2 20",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "10 atan2 NaN",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "AVG(http_requests) BY (job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "AVG(http_requests) BY (job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "COUNT(http_requests) BY (job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "COUNT(http_requests) BY (job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "MAX(http_requests) BY (job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "MAX(http_requests) BY (job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "MIN(http_requests) BY (job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "MIN(http_requests) BY (job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM BY (group) (((http_requests{job=\"api-server\"})))",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM BY (group) (((http_requests{job=\"api-server\"})))",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM BY (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM BY (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests) BY (job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests) BY (job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests) BY (job, group)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests) BY (job, group)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests) BY (job, nonexistent)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests) BY (job, nonexistent)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests{instance=\"0\"}) BY(job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "SUM(http_requests{instance=\"0\"}) BY(job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "abs(-1 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "abs(-1 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "acos(trig - 10.1)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "acos(trig - 10.1)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "acosh(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "acosh(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "asin(trig - 10.1)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "asin(trig - 10.1)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "asinh(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "asinh(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "atan(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "atan(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "atanh(trig - 10.1)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "atanh(trig - 10.1)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "avg by (group) (data{test=\"nan\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg by (group) (data{test=\"nan\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg by (group) (data{test=\"neg_inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg by (group) (data{test=\"neg_inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg by (group) (data{test=\"pos_inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg by (group) (data{test=\"pos_inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg by (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg by (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-big\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-big\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-inf2\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-inf2\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-inf3\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"-inf3\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"big\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"big\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"bigzero\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"bigzero\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf2\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf2\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf3\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf3\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf_inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"inf_inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"nan\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"nan\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"ten\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(data{test=\"ten\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(foo) - 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(foo) - 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(foo) == 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(foo) == 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg(topk(10, foo)) - 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(10, foo)) - 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(10, foo)) == 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(10, foo)) == 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(11, foo)) - 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(11, foo)) - 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(11, foo)) == 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(11, foo)) == 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(8, foo)) - 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(8, foo)) - 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(8, foo)) == 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(8, foo)) == 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(9, foo)) - 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(9, foo)) - 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(9, foo)) == 52",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg(topk(9, foo)) == 52",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "avg_over_time(foo[100s]) - 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[100s]) - 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[100s]) == 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[100s]) == 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[110s]) - 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[110s]) - 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[110s]) == 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[110s]) == 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[120s]) - 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[120s]) - 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[120s]) == 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[120s]) == 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[130s]) - 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[130s]) - 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[130s]) == 52",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(foo[130s]) == 52",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric10[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric10[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric11[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric11[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric1[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric1[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric2[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric2[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric3[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric3[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric4[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric4[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric5[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric5[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric6[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric6[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric7[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric7[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric8[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric8[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric9[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric9[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric[2m])",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(metric[2m])",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "avg_over_time(rate(http_requests_total[1m])[1m:1s])",
+    "start_ms": 20000000,
+    "end_ms": 20000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "ceil(0.004 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "ceil(0.004 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "changes(http_requests[1800])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(http_requests[1800])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(http_requests[30m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(http_requests[30m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[1m])",
+    "start_ms": -1080000,
+    "end_ms": 120000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[1m])",
+    "start_ms": -1020000,
+    "end_ms": 180000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[1m])",
+    "start_ms": 120000,
+    "end_ms": 120000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[1m])",
+    "start_ms": 180000,
+    "end_ms": 180000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[5m])",
+    "start_ms": -900000,
+    "end_ms": 300000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[5m])",
+    "start_ms": -870000,
+    "end_ms": 330000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[5m])",
+    "start_ms": 300000,
+    "end_ms": 300000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(metric[5m])",
+    "start_ms": 330000,
+    "end_ms": 330000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(x[20m])",
+    "start_ms": -300000,
+    "end_ms": 900000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "changes(x[20m])",
+    "start_ms": 900000,
+    "end_ms": 900000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): changes"
+  },
+  {
+    "expr": "clamp(metric_total, 0, 100)",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "clamp(metric_total, 0, 100)",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "cos(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "cos(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "cosh(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "cosh(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "count by (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count by (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "count by(namespace, pod, cpu) (node_cpu_seconds_total{cpu=~\".*\",job=\"node-exporter\",mode=\"idle\",namespace=\"observability\",pod=\"node-exporter-l454v\"}) * on(namespace, pod) group_left(node) node_namespace_pod:kube_pod_info:{namespace=\"observability\",pod=\"node-exporter-l454v\"}",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "count by(namespace, pod, cpu) (node_cpu_seconds_total{cpu=~\".*\",job=\"node-exporter\",mode=\"idle\",namespace=\"observability\",pod=\"node-exporter-l454v\"}) * on(namespace, pod) group_left(node) node_namespace_pod:kube_pod_info:{namespace=\"observability\",pod=\"node-exporter-l454v\"}",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "count_over_time(metric1_total[range()])",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "count_over_time(metric1_total[range()])",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "count_over_time(metric1_total[range()])",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 10000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "count_over_time(metric1_total[step()])",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 10000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "count_over_time(metric[10])",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[10])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[10s])",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[10s])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[1m])",
+    "start_ms": -1170000,
+    "end_ms": 30000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[1m])",
+    "start_ms": 30000,
+    "end_ms": 30000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[1s])",
+    "start_ms": -1190000,
+    "end_ms": 10000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[1s])",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[1s])",
+    "start_ms": 10000,
+    "end_ms": 10000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[1s])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[20])",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[20])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[20s])",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "count_over_time(metric[20s])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "deg(trig - 10)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "deg(trig - 10)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "deg(trig - 20)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "deg(trig - 20)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "deg(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "deg(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "delta(metric[1m])",
+    "start_ms": -1110000,
+    "end_ms": 90000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "delta(metric[1m])",
+    "start_ms": 90000,
+    "end_ms": 90000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "floor(0.004 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "floor(0.004 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "foo \u003e 2 or bar",
+    "start_ms": 0,
+    "end_ms": 100000,
+    "step_ms": 60000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "foo \u003e 2 or bar",
+    "start_ms": 0,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "foo \u003e 2 or bar",
+    "start_ms": 17000,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "http_requests_total{foo!=\"bar\", job=\"api-server\"}",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{foo!=\"bar\", job=\"api-server\"}",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{foo!=\"bar\"}",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{foo!=\"bar\"}",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{foo!~\"bar\", job=\"api-server\", instance=\"1\", x!=\"y\", z=\"\", group!=\"\"}",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{foo!~\"bar\", job=\"api-server\", instance=\"1\", x!=\"y\", z=\"\", group!=\"\"}",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{foo!~\"bar\", job=\"api-server\"}",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{foo!~\"bar\", job=\"api-server\"}",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{group!=\"canary\"}",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{group!=\"canary\"}",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{group=\"production\",job=\"api-server\"} offset 5m",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{group=\"production\",job=\"api-server\"} offset 5m",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{group=\"production\",job=~\"api-.+\"}",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{group=\"production\",job=~\"api-.+\"}",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{job!~\"api-.+\",group!=\"canary\"}",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{job!~\"api-.+\",group!=\"canary\"}",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{job=~\".+-server\",group!=\"canary\"}",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "http_requests_total{job=~\".+-server\",group!=\"canary\"}",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(http_requests_total[100m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(http_requests_total[100m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(http_requests_total[30m])",
+    "start_ms": 600000,
+    "end_ms": 1800000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(http_requests_total[30m])",
+    "start_ms": 1800000,
+    "end_ms": 1800000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(http_requests_total[50m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(http_requests_total[50m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1195000,
+    "end_ms": 5000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1165000,
+    "end_ms": 35000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1150000,
+    "end_ms": 50000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1135000,
+    "end_ms": 65000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1120000,
+    "end_ms": 80000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1110000,
+    "end_ms": 90000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1105000,
+    "end_ms": 95000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1090000,
+    "end_ms": 110000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": -1075000,
+    "end_ms": 125000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 5000,
+    "end_ms": 5000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 35000,
+    "end_ms": 35000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 50000,
+    "end_ms": 50000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 65000,
+    "end_ms": 65000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 80000,
+    "end_ms": 80000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 90000,
+    "end_ms": 90000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 95000,
+    "end_ms": 95000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 110000,
+    "end_ms": 110000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[1m])",
+    "start_ms": 125000,
+    "end_ms": 125000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[5m])",
+    "start_ms": -840000,
+    "end_ms": 360000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "increase(metric[5m])",
+    "start_ms": 360000,
+    "end_ms": 360000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "label_join(series, \"idx\", \",\", \"label\", \"label\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_join(series, \"idx\", \",\", \"label\", \"label\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_join(series, \"idx\", \",\", \"label\", \"label\")",
+    "start_ms": 0,
+    "end_ms": 1200000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_join(series, \"idx\", \",\", \"label\", \"label\")",
+    "start_ms": 0,
+    "end_ms": 1200000,
+    "step_ms": 1200000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_join(series, \"idx\", \",\", \"label\", \"label\")",
+    "start_ms": 17000,
+    "end_ms": 1200000,
+    "step_ms": 1200000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_join(series, \"idx\", \",\", \"label\", \"label\")",
+    "start_ms": 1200000,
+    "end_ms": 1200000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace((((testmetric))), ((\"dst\")), ((\"value-$1\")), ((\"src\")), ((\"non-matching-regex\")))",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace((((testmetric))), ((\"dst\")), ((\"value-$1\")), ((\"src\")), ((\"non-matching-regex\")))",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(series, \"idx\", \"replaced\", \"idx\", \".*\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(series, \"idx\", \"replaced\", \"idx\", \".*\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(series, \"idx\", \"replaced\", \"idx\", \".*\")",
+    "start_ms": 0,
+    "end_ms": 1200000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(series, \"idx\", \"replaced\", \"idx\", \".*\")",
+    "start_ms": 0,
+    "end_ms": 1200000,
+    "step_ms": 1200000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(series, \"idx\", \"replaced\", \"idx\", \".*\")",
+    "start_ms": 17000,
+    "end_ms": 1200000,
+    "step_ms": 1200000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(series, \"idx\", \"replaced\", \"idx\", \".*\")",
+    "start_ms": 1200000,
+    "end_ms": 1200000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(sum by (__name__) (rate(metric_total{env=\"2\"}[5m])), \"__name__\", \"$1\", \"__name__\", \"(.+)\")",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): label_replace"
+  },
+  {
+    "expr": "label_replace(sum by (__name__) (rate(metric_total{env=\"2\"}[5m])), \"__name__\", \"$1\", \"__name__\", \"(.+)\")",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): label_replace"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"\", \"dst\", \".*\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"\", \"dst\", \".*\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"$1-value-$2\", \"src\", \"(.*)-value-(.*)\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"$1-value-$2\", \"src\", \"(.*)-value-(.*)\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"destination-value-$1\", \"src\", \"source-value-(.*)\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"destination-value-$1\", \"src\", \"source-value-(.*)\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"destination-value-$1\", \"src\", \"value-(.*)\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"destination-value-$1\", \"src\", \"value-(.*)\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"value-$1\", \"nonexistent-src\", \"(.*)\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"value-$1\", \"nonexistent-src\", \"(.*)\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"value-$1\", \"nonexistent-src\", \"source-value-(.*)\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"value-$1\", \"nonexistent-src\", \"source-value-(.*)\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"value-$1\", \"src\", \"non-matching-regex\")",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "label_replace(testmetric, \"dst\", \"value-$1\", \"src\", \"non-matching-regex\")",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "last_over_time(metric_total{env=\"1\"}[10m])",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "last_over_time(metric_total{env=\"1\"}[10m])",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "max_over_time(metric_total{env=\"1\"}[10m])",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "max_over_time(metric_total{env=\"1\"}[10m])",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -1190000,
+    "end_ms": 10000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -1170000,
+    "end_ms": 30000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -1160000,
+    "end_ms": 40000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -1050000,
+    "end_ms": 150000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -901000,
+    "end_ms": 299000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -900000,
+    "end_ms": 300000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -871000,
+    "end_ms": 329000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": -870000,
+    "end_ms": 330000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 0,
+    "end_ms": 100000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 0,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 10000,
+    "end_ms": 10000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 17000,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 30000,
+    "end_ms": 30000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 40000,
+    "end_ms": 40000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 150000,
+    "end_ms": 150000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 299000,
+    "end_ms": 299000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 300000,
+    "end_ms": 300000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 329000,
+    "end_ms": 329000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric",
+    "start_ms": 330000,
+    "end_ms": 330000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric1 offset 15m or metric2 offset 45m",
+    "start_ms": 4200000,
+    "end_ms": 5400000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric1 offset 15m or metric2 offset 45m",
+    "start_ms": 5400000,
+    "end_ms": 5400000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric1_total offset +min(step(), 1s)^0",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset +min(step(), 1s)^0",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -(min(step(), 1s))+8000",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -(min(step(), 1s))+8000",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -min(step(), 1s)+8000",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -min(step(), 1s)+8000",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -min(step(), 1s)^0",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -min(step(), 1s)^0",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -step()*2",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset -step()*2",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset 100 + 2",
+    "start_ms": -200000,
+    "end_ms": 1000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric1_total offset 100 + 2",
+    "start_ms": 1000000,
+    "end_ms": 1000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric1_total offset 2 ^ 2",
+    "start_ms": -198000,
+    "end_ms": 1002000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric1_total offset 2 ^ 2",
+    "start_ms": 1002000,
+    "end_ms": 1002000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric1_total offset STEP()",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset STEP()",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset max(3s,min(step(), 1s))+8000",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset max(3s,min(step(), 1s))+8000",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(range(), 8s)",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(range(), 8s)",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(step(), 1s)",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(step(), 1s)",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(step(), 1s)+8000",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(step(), 1s)+8000",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(step(), 1s)^0",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset min(step(), 1s)^0",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset range()",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset range()",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset step()",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset step()",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset step()*0",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset step()*0",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset step()^0",
+    "start_ms": 50000,
+    "end_ms": 58334,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metric1_total offset step()^0",
+    "start_ms": 50000,
+    "end_ms": 60000,
+    "step_ms": 5000,
+    "plan": "fallback",
+    "reason": "duration expression (resolved only at evaluation time)"
+  },
+  {
+    "expr": "metricA + ignoring() metricB",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metricA + ignoring() metricB",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metricA + metricB",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metricA + metricB",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric_total * 2",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric_total * 2",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric_total + another_metric_total",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric_total + another_metric_total",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric_total \u003c= another_metric_total",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric_total \u003c= another_metric_total",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric_total \u003c= bool another_metric_total",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric_total \u003c= bool another_metric_total",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "metric_total{env=\"1\"}",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "metric_total{env=\"1\"}",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "min_over_time(metric_total[10s])",
+    "start_ms": -1180000,
+    "end_ms": 20000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "min_over_time(metric_total[10s])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "min_over_time(metric_total[15s:10s])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "min_over_time(rate(metric_total[5m])[20m:1m])",
+    "start_ms": 1200000,
+    "end_ms": 1200000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu % 2",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu % 2",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu * 2",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu * 2",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu * ignoring (role, mode) group_left (role) node_role",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_cpu * ignoring (role, mode) group_left (role) node_role",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_cpu * on (instance) group_left (role) node_role",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_cpu * on (instance) group_left (role) node_role",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_cpu + 2",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu + 2",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu + on(dummy) group_left(foo) random*0",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu + on(dummy) group_left(foo) random*0",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu - 2",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu - 2",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu / 2",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu / 2",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu / ignoring (mode) group_left sum without (mode)(node_cpu)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu / ignoring (mode) group_left sum without (mode)(node_cpu)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu / ignoring (mode) group_left(dummy) sum without (mode)(node_cpu)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu / ignoring (mode) group_left(dummy) sum without (mode)(node_cpu)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu / on (instance) group_left sum by (instance,job)(node_cpu)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu / on (instance) group_left sum by (instance,job)(node_cpu)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu \u003e on(job, instance) group_left(target) (threshold or on (job, instance) (sum by (job, instance)(node_cpu) * 0 + 1))",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu \u003e on(job, instance) group_left(target) (threshold or on (job, instance) (sum by (job, instance)(node_cpu) * 0 + 1))",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "node_cpu \u003e on(job, instance) group_left(target) threshold",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_cpu \u003e on(job, instance) group_left(target) threshold",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_cpu ^ 2",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_cpu ^ 2",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "node_role * ignoring (role) group_right (role) node_var",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_role * ignoring (role) group_right (role) node_var",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_role * on (instance) group_right (role) node_var",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_role * on (instance) group_right (role) node_var",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_var * ignoring (role) group_left (role) node_role",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_var * ignoring (role) group_left (role) node_role",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_var * on (instance) group_left (role) node_role",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "node_var * on (instance) group_left (role) node_role",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "other + fill",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "other + fill",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[10m])",
+    "start_ms": -300000,
+    "end_ms": 900000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[10m])",
+    "start_ms": 900000,
+    "end_ms": 900000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[16m])",
+    "start_ms": -240000,
+    "end_ms": 960000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[16m])",
+    "start_ms": 960000,
+    "end_ms": 960000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[5m])",
+    "start_ms": -900000,
+    "end_ms": 300000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[5m])",
+    "start_ms": -300000,
+    "end_ms": 900000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[5m])",
+    "start_ms": 300000,
+    "end_ms": 300000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[5m])",
+    "start_ms": 900000,
+    "end_ms": 900000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[6m])",
+    "start_ms": -240000,
+    "end_ms": 960000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(http_requests_total[6m])",
+    "start_ms": 960000,
+    "end_ms": 960000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(httpd_handshake_failures_total[1m])",
+    "start_ms": -240000,
+    "end_ms": 960000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(httpd_handshake_failures_total[1m])",
+    "start_ms": 960000,
+    "end_ms": 960000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(httpd_log_lines_total[30s])",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(httpd_log_lines_total[30s])",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(httpd_log_lines_total[30s])",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(httpd_log_lines_total[30s])",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time(rate(http_requests_total[5m])[5m:1m])",
+    "start_ms": 300000,
+    "end_ms": 300000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "present_over_time({instance=\"127.0.0.1\"}[5m:5s])",
+    "start_ms": 1800000,
+    "end_ms": 1800000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "present_over_time({instance=\"127.0.0.1\"}[5m])",
+    "start_ms": -240000,
+    "end_ms": 960000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time({instance=\"127.0.0.1\"}[5m])",
+    "start_ms": 960000,
+    "end_ms": 960000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time({job=\"grok\"}[20m])",
+    "start_ms": 60000,
+    "end_ms": 1260000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time({job=\"grok\"}[20m])",
+    "start_ms": 1260000,
+    "end_ms": 1260000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time({job=\"ingress\"}[4m])",
+    "start_ms": -900000,
+    "end_ms": 300000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time({job=\"ingress\"}[4m])",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time({job=\"ingress\"}[4m])",
+    "start_ms": 300000,
+    "end_ms": 300000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "present_over_time({job=\"ingress\"}[4m])",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "rad(trig - 10)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "rad(trig - 10)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "rad(trig - 20)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "rad(trig - 20)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "rad(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "rad(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "random + on() metricA",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "random + on() metricA",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "rate(calculate_rate_offset_total[10m] offset 5m)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(calculate_rate_offset_total[10m] offset 5m)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(calculate_rate_window_total[50m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(calculate_rate_window_total[50m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total[1m])",
+    "start_ms": 16800000,
+    "end_ms": 18000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total[1m])",
+    "start_ms": 18000000,
+    "end_ms": 18000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total[40s]) - rate(http_requests_total[1m] offset 10000s)",
+    "start_ms": 16800000,
+    "end_ms": 18000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "rate(http_requests_total[40s]) - rate(http_requests_total[1m] offset 10000s)",
+    "start_ms": 18000000,
+    "end_ms": 18000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"((?i)PRO).*\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"((?i)PRO).*\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"(?i:PRO).*\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"(?i:PRO).*\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"(?i:PRODUCTION)\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"(?i:PRODUCTION)\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*((?i)DUC).*\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*((?i)DUC).*\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*((?i)TION)\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*((?i)TION)\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:C).*\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:C).*\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:DUC).*\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:DUC).*\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:TION)\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:TION)\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:TION).*?\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*(?i:TION).*?\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*?(?i:PRO).*\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*?(?i:PRO).*\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*ry\", instance=\"1\"}[1m])",
+    "start_ms": 16800000,
+    "end_ms": 18000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\".*ry\", instance=\"1\"}[1m])",
+    "start_ms": 18000000,
+    "end_ms": 18000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"pro.*\"}[1m:10s])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"pro.*\"}[1m])",
+    "start_ms": 6800000,
+    "end_ms": 8000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{group=~\"pro.*\"}[1m])",
+    "start_ms": 8000000,
+    "end_ms": 8000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{instance!=\"3\"}[1m] offset 10000s)",
+    "start_ms": 16800000,
+    "end_ms": 18000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(http_requests_total{instance!=\"3\"}[1m] offset 10000s)",
+    "start_ms": 18000000,
+    "end_ms": 18000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(metric_total[1m1s:10s])",
+    "start_ms": 80000,
+    "end_ms": 80000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(metric_total[1m500ms:10s])",
+    "start_ms": 80000,
+    "end_ms": 80000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(metric_total[1m])",
+    "start_ms": -1120000,
+    "end_ms": 80000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(metric_total[1m])",
+    "start_ms": 80000,
+    "end_ms": 80000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(metric_total[20s:10s])",
+    "start_ms": 10000,
+    "end_ms": 10000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(metric_total[20s:5s])",
+    "start_ms": 20000,
+    "end_ms": 20000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(metric_total{env=\"1\"}[10m])",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(metric_total{env=\"1\"}[10m])",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(sum_over_time((metric1_total+metric2_total+metric3_total)[30s:10s])[30s:10s])",
+    "start_ms": 1000000,
+    "end_ms": 1000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(sum_over_time(metric1_total[30s:10s])[50s:10s])",
+    "start_ms": 1000000,
+    "end_ms": 1000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(sum_over_time(metric2_total[30s:10s])[50s:10s])",
+    "start_ms": 1000000,
+    "end_ms": 1000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(sum_over_time(metric3_total[30s:10s])[50s:10s])",
+    "start_ms": 1000000,
+    "end_ms": 1000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "rate(testcounter_reset_end_total[5m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_reset_end_total[5m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_reset_end_total[6m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_reset_end_total[6m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_reset_middle_total[50m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_reset_middle_total[50m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_zero_cutoff_total[20m])",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_zero_cutoff_total[20m])",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_zero_cutoff_total[20m])",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "rate(testcounter_zero_cutoff_total[20m])",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "requests * 2",
+    "start_ms": 0,
+    "end_ms": 100000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "requests * 2",
+    "start_ms": 0,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "requests * 2",
+    "start_ms": 17000,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "resets(metric[1m])",
+    "start_ms": -1080000,
+    "end_ms": 120000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): resets"
+  },
+  {
+    "expr": "resets(metric[1m])",
+    "start_ms": -1020000,
+    "end_ms": 180000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): resets"
+  },
+  {
+    "expr": "resets(metric[1m])",
+    "start_ms": 120000,
+    "end_ms": 120000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): resets"
+  },
+  {
+    "expr": "resets(metric[1m])",
+    "start_ms": 180000,
+    "end_ms": 180000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): resets"
+  },
+  {
+    "expr": "resets(metric[5m])",
+    "start_ms": -870000,
+    "end_ms": 330000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): resets"
+  },
+  {
+    "expr": "resets(metric[5m])",
+    "start_ms": 330000,
+    "end_ms": 330000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "range shape with unsupported function(s): resets"
+  },
+  {
+    "expr": "round(-1 * (0.004 * http_requests{group=\"production\",job=\"api-server\"}))",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(-1 * (0.004 * http_requests{group=\"production\",job=\"api-server\"}))",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(-1 * (0.005 * http_requests{group=\"production\",job=\"api-server\"}))",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(-1 * (0.005 * http_requests{group=\"production\",job=\"api-server\"}))",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(-1 * (1 + 0.005 * http_requests{group=\"production\",job=\"api-server\"}))",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(-1 * (1 + 0.005 * http_requests{group=\"production\",job=\"api-server\"}))",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(-1 * (5.2 + 0.0005 * http_requests{group=\"production\",job=\"api-server\"}), 0.1)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(-1 * (5.2 + 0.0005 * http_requests{group=\"production\",job=\"api-server\"}), 0.1)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.0005 * http_requests{group=\"production\",job=\"api-server\"}, 0.1)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.0005 * http_requests{group=\"production\",job=\"api-server\"}, 0.1)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.004 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.004 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.005 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.005 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.025 * http_requests{group=\"production\",job=\"api-server\"}, 5)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.025 * http_requests{group=\"production\",job=\"api-server\"}, 5)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.045 * http_requests{group=\"production\",job=\"api-server\"}, 5)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(0.045 * http_requests{group=\"production\",job=\"api-server\"}, 5)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(1 + 0.005 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(1 + 0.005 * http_requests{group=\"production\",job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(2.1 + 0.0005 * http_requests{group=\"production\",job=\"api-server\"}, 0.1)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(2.1 + 0.0005 * http_requests{group=\"production\",job=\"api-server\"}, 0.1)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(5.2 + 0.0005 * http_requests{group=\"production\",job=\"api-server\"}, 0.1)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(5.2 + 0.0005 * http_requests{group=\"production\",job=\"api-server\"}, 0.1)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "round(metric_total)",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "round(metric_total)",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sin(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sin(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sinh(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sinh(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev (series)",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev (series)",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev by (instance)(http_requests)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev by (instance)(http_requests)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev by (label) (series)",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev by (label) (series)",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev(http_requests)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev(http_requests)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev(series)",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev(series)",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stddev_over_time(metric[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "stddev_over_time(metric[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "stdvar (series)",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar (series)",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar by (instance)(http_requests)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar by (instance)(http_requests)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar by (label) (series)",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar by (label) (series)",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar(http_requests)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar(http_requests)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar(series)",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar(series)",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "stdvar_over_time(metric[1m])",
+    "start_ms": -1145000,
+    "end_ms": 55000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "stdvar_over_time(metric[1m])",
+    "start_ms": 55000,
+    "end_ms": 55000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum by () (http_requests{job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by () (http_requests{job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (__name__) (metric_total{env=\"1\"} or rate(metric_total{env=\"2\"}[5m]))",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (metric_total{env=\"1\"} or rate(metric_total{env=\"2\"}[5m]))",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (metric_total{env=\"1\"})",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sum by (__name__) (metric_total{env=\"1\"})",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sum by (__name__) (metric_total{env=\"3\"} or rate(metric_total{env=\"2\"}[5m]))",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (metric_total{env=\"3\"} or rate(metric_total{env=\"2\"}[5m]))",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (rate(metric_total{env=\"2\"}[5m]) or metric_total{env=\"1\"})",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (rate(metric_total{env=\"2\"}[5m]) or metric_total{env=\"1\"})",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (rate(metric_total{env=\"2\"}[5m]))",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (rate(metric_total{env=\"2\"}[5m]))",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (rate(metric_total{env=\"3\"}[5m]) or metric_total{env=\"1\"})",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__) (rate(metric_total{env=\"3\"}[5m]) or metric_total{env=\"1\"})",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "sum by (__name__, env) (metric_total{env=\"1\"})",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sum by (__name__, env) (metric_total{env=\"1\"})",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sum by (group) (data{test=\"nan\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (group) (data{test=\"nan\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (group) (data{test=\"neg_inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (group) (data{test=\"neg_inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (group) (data{test=\"pos_inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (group) (data{test=\"pos_inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (group) (http_requests{job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum by (mode, job)(node_cpu) / on (job) group_left sum by (job)(node_cpu)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum by (mode, job)(node_cpu) / on (job) group_left sum by (job)(node_cpu)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum without () (http_requests{job=\"api-server\",group=\"production\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum without () (http_requests{job=\"api-server\",group=\"production\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum without (instance) (http_requests{job=\"api-server\"} or foo)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sum without (instance) (http_requests{job=\"api-server\"} or foo)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "sum without (instance) (http_requests{job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum without (instance) (http_requests{job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum without (instance)(node_cpu) / ignoring (mode) group_left sum without (instance, mode)(node_cpu)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum without (instance)(node_cpu) / ignoring (mode) group_left sum without (instance, mode)(node_cpu)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum(data{test=\"inf_inf\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(data{test=\"inf_inf\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(data{test=\"ten\"})",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(data{test=\"ten\"})",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(http_requests) by (job) + min(http_requests) by (job) + max(http_requests) by (job) + avg(http_requests) by (job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 4
+  },
+  {
+    "expr": "sum(http_requests) by (job) + min(http_requests) by (job) + max(http_requests) by (job) + avg(http_requests) by (job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 4
+  },
+  {
+    "expr": "sum(http_requests{job=\"api-server\"})",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(http_requests{job=\"api-server\"})",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(label_grouping_test) by (a, b)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(label_grouping_test) by (a, b)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum(sum by (group) (http_requests{job=\"api-server\"})) by (job)",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "sum(sum by (group) (http_requests{job=\"api-server\"})) by (job)",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 1
+  },
+  {
+    "expr": "sum(sum by (mode, job)(node_cpu) / on (job) group_left sum by (job)(node_cpu))",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum(sum by (mode, job)(node_cpu) / on (job) group_left sum by (job)(node_cpu))",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum(sum without (instance)(node_cpu) / ignoring (mode) group_left sum without (instance, mode)(node_cpu))",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum(sum without (instance)(node_cpu) / ignoring (mode) group_left sum without (instance, mode)(node_cpu))",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "hybrid",
+    "units": 2
+  },
+  {
+    "expr": "sum_over_time((metric1_total)[30:10] offset 3)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time((metric1_total)[30:10] offset 3s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time((metric1_total)[30:10s] offset 3s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time((metric1_total)[30s:10s] offset 3s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 50000,
+    "step_ms": 30000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 60000,
+    "step_ms": 15000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 60000,
+    "step_ms": 30000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 60000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 80000,
+    "step_ms": 30000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 90000,
+    "step_ms": 15000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 90000,
+    "step_ms": 30000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 90000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 100000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 120000,
+    "step_ms": 15000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 220000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 240000,
+    "step_ms": 15000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 0,
+    "end_ms": 240000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 17000,
+    "end_ms": 60000,
+    "step_ms": 30000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 17000,
+    "end_ms": 90000,
+    "step_ms": 30000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 17000,
+    "end_ms": 120000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(bar[30s])",
+    "start_ms": 17000,
+    "end_ms": 240000,
+    "step_ms": 60000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30:10] offset 3)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30s:10s] offset 10s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30s:10s] offset 3s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30s:10s] offset 5s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30s:10s] offset 7s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30s:10s] offset 9s)",
+    "start_ms": 1010000,
+    "end_ms": 1010000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30s:10s])",
+    "start_ms": 1000000,
+    "end_ms": 1000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric1_total[30s:5s])",
+    "start_ms": 1000000,
+    "end_ms": 1000000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric[1000ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[1000ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[1001ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[1001ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[1002ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[1002ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[1003ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[1003ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[2000ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[2000ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[2001ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[2001ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[2002ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[2002ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[2003ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[2003ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[2m])",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[2m])",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[3000ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[3000ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "sum_over_time(metric[3001ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[3001ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[3002ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[3002ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[3003ms])",
+    "start_ms": -1196000,
+    "end_ms": 4000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric[3003ms])",
+    "start_ms": 4000,
+    "end_ms": 4000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "*_over_time range function"
+  },
+  {
+    "expr": "sum_over_time(metric_total[50s:10s])",
+    "start_ms": 10000,
+    "end_ms": 10000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric_total[50s:10s])",
+    "start_ms": 300000,
+    "end_ms": 300000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric_total[50s:5s])",
+    "start_ms": 10000,
+    "end_ms": 10000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "sum_over_time(metric_total[60s:10s])",
+    "start_ms": 359000,
+    "end_ms": 359000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "subquery"
+  },
+  {
+    "expr": "tan(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "tan(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "tanh(trig)",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "tanh(trig)",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003c bool test_smaller",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003c bool test_smaller",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003c test_smaller",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003c test_smaller",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003e bool test_smaller",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003e bool test_smaller",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003e test_smaller",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "test_total \u003e test_smaller",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "testmetric",
+    "start_ms": -1200000,
+    "end_ms": 0,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "testmetric",
+    "start_ms": 0,
+    "end_ms": 0,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "topk(10, sum by (__name__, env) (metric_total{env=\"1\"}))",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "topk(10, sum by (__name__, env) (metric_total{env=\"1\"}))",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "topk(10, sum by (__name__, env) (rate(metric_total{env=\"1\"}[10m])))",
+    "start_ms": -600000,
+    "end_ms": 600000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "topk(10, sum by (__name__, env) (rate(metric_total{env=\"1\"}[10m])))",
+    "start_ms": 600000,
+    "end_ms": 600000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "other range shape"
+  },
+  {
+    "expr": "trigy atan2 trigNaN",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "trigy atan2 trigNaN",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "trigy atan2 trigx",
+    "start_ms": -1140000,
+    "end_ms": 60000,
+    "step_ms": 600000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "trigy atan2 trigx",
+    "start_ms": 60000,
+    "end_ms": 60000,
+    "step_ms": 1000,
+    "plan": "fallback",
+    "reason": "instant-selector shape (last-sample-per-step engine path)"
+  },
+  {
+    "expr": "x{y=\"testvalue\"}",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "x{y=\"testvalue\"}",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "{__name__=~\".+\"}",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "{__name__=~\".+\"}",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  },
+  {
+    "expr": "{job=~\".+-server\", job!~\"api-.+\"}",
+    "start_ms": 1800000,
+    "end_ms": 3000000,
+    "step_ms": 600000,
+    "plan": "full"
+  },
+  {
+    "expr": "{job=~\".+-server\", job!~\"api-.+\"}",
+    "start_ms": 3000000,
+    "end_ms": 3000000,
+    "step_ms": 1000,
+    "plan": "full"
+  }
+]
