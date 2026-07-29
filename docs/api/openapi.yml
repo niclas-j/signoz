@@ -24695,6 +24695,149 @@ paths:
       summary: Replace variables
       tags:
       - querier
+  /prometheus/api/v1/query:
+    get:
+      deprecated: false
+      description: Evaluate a PromQL expression at a single instant. Request and
+        response follow the Prometheus HTTP API (https://prometheus.io/docs/prometheus/latest/querying/api/);
+        the /prometheus prefix distinguishes these PromQL-only endpoints from the
+        SigNoz query APIs. Also accepts POST with form-encoded parameters.
+      operationId: PrometheusInstantQuery
+      parameters:
+      - description: PromQL expression to evaluate
+        in: query
+        name: query
+        required: true
+        schema:
+          type: string
+      - description: 'Evaluation timestamp: float unix seconds or RFC3339. Defaults
+          to the server''s current time.'
+        in: query
+        name: time
+        schema:
+          type: string
+      - description: 'Evaluation timeout: float seconds or a Prometheus duration
+          string (e.g. 30s).'
+        in: query
+        name: timeout
+        schema:
+          type: string
+      - description: Set to any value to include query statistics in the response.
+        in: query
+        name: stats
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    properties:
+                      result: {}
+                      resultType:
+                        enum:
+                        - matrix
+                        - vector
+                        - scalar
+                        - string
+                        type: string
+                      stats: {}
+                    type: object
+                  status:
+                    enum:
+                    - success
+                    type: string
+                type: object
+          description: Query evaluated successfully
+        "400":
+          description: Unparsable expression or parameters (errorType bad_data)
+        "422":
+          description: Expression failed to evaluate (errorType execution)
+        "503":
+          description: Query timed out or was canceled
+      summary: Prometheus instant query
+      tags:
+      - prometheus
+  /prometheus/api/v1/query_range:
+    get:
+      deprecated: false
+      description: Evaluate a PromQL expression over a range of time on a fixed
+        step grid. Request and response follow the Prometheus HTTP API
+        (https://prometheus.io/docs/prometheus/latest/querying/api/); the
+        /prometheus prefix distinguishes these PromQL-only endpoints from the
+        SigNoz query APIs. Grids are capped at 11,000 points per series. Also
+        accepts POST with form-encoded parameters.
+      operationId: PrometheusRangeQuery
+      parameters:
+      - description: PromQL expression to evaluate
+        in: query
+        name: query
+        required: true
+        schema:
+          type: string
+      - description: 'Start timestamp: float unix seconds or RFC3339.'
+        in: query
+        name: start
+        required: true
+        schema:
+          type: string
+      - description: 'End timestamp: float unix seconds or RFC3339.'
+        in: query
+        name: end
+        required: true
+        schema:
+          type: string
+      - description: 'Grid step: float seconds or a Prometheus duration string
+          (e.g. 30s). Must be positive.'
+        in: query
+        name: step
+        required: true
+        schema:
+          type: string
+      - description: 'Evaluation timeout: float seconds or a Prometheus duration
+          string (e.g. 30s).'
+        in: query
+        name: timeout
+        schema:
+          type: string
+      - description: Set to any value to include query statistics in the response.
+        in: query
+        name: stats
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    properties:
+                      result: {}
+                      resultType:
+                        enum:
+                        - matrix
+                        type: string
+                      stats: {}
+                    type: object
+                  status:
+                    enum:
+                    - success
+                    type: string
+                type: object
+          description: Query evaluated successfully
+        "400":
+          description: Unparsable expression or parameters, or a grid past the 11,000-point
+            cap (errorType bad_data)
+        "422":
+          description: Expression failed to evaluate (errorType execution)
+        "503":
+          description: Query timed out or was canceled
+      summary: Prometheus range query
+      tags:
+      - prometheus
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}

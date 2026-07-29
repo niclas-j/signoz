@@ -14,7 +14,6 @@ import (
 )
 
 type Reader interface {
-	GetInstantQueryMetricsResult(ctx context.Context, query *model.InstantQueryMetricsParams) (*promql.Result, *stats.QueryStats, *model.ApiError)
 	GetQueryRangeResult(ctx context.Context, query *model.QueryRangeParams) (*promql.Result, *stats.QueryStats, *model.ApiError)
 	GetTopLevelOperations(ctx context.Context, start, end time.Time, services []string) (*map[string][]string, *model.ApiError)
 	GetEntryPointOperations(ctx context.Context, query *model.GetTopOperationsParams) (*[]model.TopOperationsItem, error)

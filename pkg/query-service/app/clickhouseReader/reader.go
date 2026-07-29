@@ -232,25 +232,6 @@ func NewReader(
 	}
 }
 
-func (r *ClickHouseReader) GetInstantQueryMetricsResult(ctx context.Context, queryParams *model.InstantQueryMetricsParams) (*promql.Result, *stats.QueryStats, *model.ApiError) {
-	qry, err := r.prometheus.Engine().NewInstantQuery(ctx, r.prometheus.Storage(), nil, queryParams.Query, queryParams.Time)
-	if err != nil {
-		return nil, nil, &model.ApiError{Typ: model.ErrorBadData, Err: err}
-	}
-
-	res := qry.Exec(ctx)
-
-	// Optional stats field in response if parameter "stats" is not empty.
-	var qs stats.QueryStats
-	if queryParams.Stats != "" {
-		qs = stats.NewQueryStats(qry.Stats())
-	}
-
-	qry.Close()
-	return res, &qs, nil
-
-}
-
 func (r *ClickHouseReader) GetQueryRangeResult(ctx context.Context, query *model.QueryRangeParams) (*promql.Result, *stats.QueryStats, *model.ApiError) {
 	qry, err := r.prometheus.Engine().NewRangeQuery(ctx, r.prometheus.Storage(), nil, query.Query, query.Start, query.End, query.Step)
 

@@ -26,11 +26,10 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/prometheus/prometheus/promql"
-
 	"github.com/SigNoz/signoz/pkg/http/middleware"
 	"github.com/SigNoz/signoz/pkg/http/render"
 	"github.com/SigNoz/signoz/pkg/licensing"
+	"github.com/SigNoz/signoz/pkg/prometheus/promapi"
 	"github.com/SigNoz/signoz/pkg/query-service/app/integrations"
 	"github.com/SigNoz/signoz/pkg/signoz"
 	"github.com/SigNoz/signoz/pkg/types/retentiontypes"
@@ -483,8 +482,12 @@ func (aH *APIHandler) Respond(w http.ResponseWriter, data interface{}) {
 
 // RegisterRoutes registers routes for this handler on the given router
 func (aH *APIHandler) RegisterRoutes(router *mux.Router, am *middleware.AuthZ) {
-	router.HandleFunc("/api/v1/query_range", am.ViewAccess(aH.queryRangeMetrics)).Methods(http.MethodGet)
-	router.HandleFunc("/api/v1/query", am.ViewAccess(aH.queryMetrics)).Methods(http.MethodGet)
+	// PromQL-only endpoints, in Prometheus' own API shape, live under a
+	// /prometheus prefix so they are distinguishable from the SigNoz query
+	// APIs; Prometheus-compatible clients can be pointed at the prefix.
+	promAPI := promapi.NewHandler(aH.logger, aH.Signoz.Prometheus)
+	router.HandleFunc("/prometheus/api/v1/query_range", am.ViewAccess(promAPI.QueryRange)).Methods(http.MethodGet, http.MethodPost)
+	router.HandleFunc("/prometheus/api/v1/query", am.ViewAccess(promAPI.Query)).Methods(http.MethodGet, http.MethodPost)
 	router.HandleFunc("/api/v1/rules", am.ViewAccess(aH.listRules)).Methods(http.MethodGet)
 	router.HandleFunc("/api/v1/rules/{id}", am.ViewAccess(aH.getRule)).Methods(http.MethodGet)
 	router.HandleFunc("/api/v1/rules", am.EditAccess(aH.createRule)).Methods(http.MethodPost)
@@ -1101,115 +1104,6 @@ func (aH *APIHandler) queryDashboardVarsV2(w http.ResponseWriter, r *http.Reques
 		return
 	}
 	aH.Respond(w, dashboardVars)
-}
-
-func (aH *APIHandler) queryRangeMetrics(w http.ResponseWriter, r *http.Request) {
-
-	query, apiErrorObj := parseQueryRangeRequest(r)
-
-	if apiErrorObj != nil {
-		RespondError(w, apiErrorObj, nil)
-		return
-	}
-
-	// TODO: add structured logging for query and apiError if needed
-
-	ctx := r.Context()
-	if to := r.FormValue("timeout"); to != "" {
-		var cancel context.CancelFunc
-		timeout, err := parseMetricsDuration(to)
-		if aH.HandleError(w, err, http.StatusBadRequest) {
-			return
-		}
-
-		ctx, cancel = context.WithTimeout(ctx, timeout)
-		defer cancel()
-	}
-
-	res, qs, apiError := aH.reader.GetQueryRangeResult(ctx, query)
-
-	if apiError != nil {
-		RespondError(w, apiError, nil)
-		return
-	}
-
-	if res.Err != nil {
-		aH.logger.ErrorContext(r.Context(), "error in query range metrics", errors.Attr(res.Err))
-	}
-
-	if res.Err != nil {
-		switch res.Err.(type) {
-		case promql.ErrQueryCanceled:
-			RespondError(w, &model.ApiError{Typ: model.ErrorCanceled, Err: res.Err}, nil)
-		case promql.ErrQueryTimeout:
-			RespondError(w, &model.ApiError{Typ: model.ErrorTimeout, Err: res.Err}, nil)
-		}
-		RespondError(w, &model.ApiError{Typ: model.ErrorExec, Err: res.Err}, nil)
-		return
-	}
-
-	response_data := &model.QueryData{
-		ResultType: res.Value.Type(),
-		Result:     res.Value,
-		Stats:      qs,
-	}
-
-	aH.Respond(w, response_data)
-
-}
-
-func (aH *APIHandler) queryMetrics(w http.ResponseWriter, r *http.Request) {
-
-	queryParams, apiErrorObj := parseInstantQueryMetricsRequest(r)
-
-	if apiErrorObj != nil {
-		RespondError(w, apiErrorObj, nil)
-		return
-	}
-
-	// TODO: add structured logging for query and apiError if needed
-
-	ctx := r.Context()
-	if to := r.FormValue("timeout"); to != "" {
-		var cancel context.CancelFunc
-		timeout, err := parseMetricsDuration(to)
-		if aH.HandleError(w, err, http.StatusBadRequest) {
-			return
-		}
-
-		ctx, cancel = context.WithTimeout(ctx, timeout)
-		defer cancel()
-	}
-
-	res, qs, apiError := aH.reader.GetInstantQueryMetricsResult(ctx, queryParams)
-
-	if apiError != nil {
-		RespondError(w, apiError, nil)
-		return
-	}
-
-	if res.Err != nil {
-		aH.logger.ErrorContext(r.Context(), "error in query range metrics", errors.Attr(res.Err))
-	}
-
-	if res.Err != nil {
-		switch res.Err.(type) {
-		case promql.ErrQueryCanceled:
-			RespondError(w, &model.ApiError{Typ: model.ErrorCanceled, Err: res.Err}, nil)
-		case promql.ErrQueryTimeout:
-			RespondError(w, &model.ApiError{Typ: model.ErrorTimeout, Err: res.Err}, nil)
-		}
-		RespondError(w, &model.ApiError{Typ: model.ErrorExec, Err: res.Err}, nil)
-	}
-
-	responseData := &model.QueryData{
-		ResultType: res.Value.Type(),
-		Result:     res.Value,
-		Stats:      qs,
-	}
-
-	aH.Respond(w, responseData)
-
 }
 
 func (aH *APIHandler) registerEvent(w http.ResponseWriter, r *http.Request) {
