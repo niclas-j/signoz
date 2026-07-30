@@ -38,7 +38,8 @@ COPY ./pkg/ ./pkg/
 COPY ./templates /root/templates
 
 COPY Makefile Makefile
-RUN TARGET_DIR=/root ARCHS=${TARGETARCH} ZEUS_URL=${ZEUSURL} LICENSE_URL=${ZEUSURL}/api/v1 make go-build-enterprise-race
+
+RUN TARGET_DIR=/root ARCHS=${TARGETARCH} ZEUS_URL=${ZEUSURL} LICENSE_URL=${ZEUSURL}/api/v1 make go-build-enterprise
 RUN mv /root/linux-${TARGETARCH}/signoz /root/signoz
 
 COPY --from=build /opt/build ./web/
